@@ -246,34 +246,36 @@ Amex | 375521501910816 | Declined
 ---
 
 ### NMI (Network Merchants Inc.)
-Docs & references:
-- [NMI Testing Overview](https://guide.nmi.com/docs/testing)
-- [NMI Sandbox Access & Credentials](https://guide.nmi.com/docs/sandbox)
-- [NMI 3-D Secure Test Cards](https://guide.nmi.com/docs/threeds/test-cards)
+
+Docs & References:  
+- [NMI Testing Overview](https://guide.nmi.com/docs/testing)  
+- [NMI Sandbox Access & Credentials](https://guide.nmi.com/docs/sandbox)  
+- [NMI 3-D Secure Test Cards](https://guide.nmi.com/docs/threeds/test-cards)  
 - [NMI Support: Test Cards](https://support.nmi.com/hc/en-us/articles/4407246151835-Test-Cards)
 
-Use these test cards only in the NMI Sandbox / Test Mode. Never use in production.
+Use these test cards only in the NMI **Sandbox / Test Mode**. Never use in production.
 
-#### 3-D Secure (3DS) Test Cards (NMI)
-These PANs simulate varied 3DS outcomes in the NMI sandbox.
+#### 3-D Secure (3DS) Test Cards
 
-# | Card Number | Expected Result / Scenario
-:--:|:--|:--
-1 | `4000000000002701` | Successful frictionless authentication — UI emits **complete**.
-2 | `4000000000002925` | Failed frictionless — UI emits **failure** (`TRANSACTION_STATUS_N`).
-3 | `4000000000002719` | Attempted frictionless — issuer not supported; UI **complete** with `"cardHolderAuth": "attempted"`.
-4 | `4000000000002313` | Authentication unavailable — **failure**.
-5 | `4000000000002537` | Rejected authentication — **failure** (`TRANSACTION_STATUS_R`).
-6 | `4000000000002990` | Unknown error — gateway error.
-7 | `4000000000002354` | Timeout error — gateway error / timeout.
-8 | `4000000000002503` | Successful step-up (challenge) — user completes challenge → **complete**.
-9 | `4000000000002370` | Failed step-up (challenge) — **failure** after authentication.
-10 | `4000000000002420` | Unavailable step-up (challenge) — **failure**.
-11 | `4000000000002644` | Error during authentication — UI emits **error** event.
+These PANs simulate various 3DS outcomes in the NMI sandbox.
 
-**General NMI notes**
-- Use any future expiry date (e.g., `12/30`) and any 3-digit CVV for CNP tests.
-- NMI also supports triggers for processor responses via transaction amounts, PAN patterns, or sandbox configuration — consult the NMI docs for amount-driven response testing and sandbox settings.
+| # | Card Number | Expected Result / Scenario |
+|:--:|:--|:--|
+| 1 | `4000000000002701` | Successful frictionless authentication — UI emits **complete**. |
+| 2 | `4000000000002925` | Failed frictionless — UI emits **failure** (`TRANSACTION_STATUS_N`). |
+| 3 | `4000000000002719` | Attempted frictionless — issuer not supported; UI **complete** with `"cardHolderAuth": "attempted"`. |
+| 4 | `4000000000002313` | Authentication unavailable — **failure**. |
+| 5 | `4000000000002537` | Rejected authentication — **failure** (`TRANSACTION_STATUS_R`). |
+| 6 | `4000000000002990` | Unknown error — gateway error. |
+| 7 | `4000000000002354` | Timeout error — gateway error / timeout. |
+| 8 | `4000000000002503` | Successful step-up (challenge) — user completes challenge → **complete**. |
+| 9 | `4000000000002370` | Failed step-up (challenge) — **failure** after authentication. |
+| 10 | `4000000000002420` | Unavailable step-up (challenge) — **failure**. |
+| 11 | `4000000000002644` | Error during authentication — UI emits **error** event. |
+
+**General NMI Notes**
+- Use any **future expiry date** (e.g., `12/30`) and any 3-digit **CVV** for CNP tests.  
+- NMI supports triggers for processor responses via transaction amounts, PAN patterns, or sandbox configuration — see NMI docs for amount-driven response testing and sandbox configuration details.
 
 ---
 
